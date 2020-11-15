@@ -1,0 +1,10 @@
+{
+    "id"       : "", // uniqe id
+    "name"     : "", // name
+    "version"  : "", // version
+    "hash"     : "", // author
+    "author"   : "", // author
+    "type"     : "", // type
+    "files"    : [],
+    "groups"   : []
+}
