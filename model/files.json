@@ -1,0 +1,7 @@
+{
+    "serial"   : 0,  // 
+    "id"       : "", // uniqe id
+    "name"     : "", // name
+    "type"     : "", // type
+    "hash"     : "" // hash
+}
