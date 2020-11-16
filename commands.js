@@ -146,7 +146,7 @@ exports.commands = {
             'del' :{}
         }
     },
-    'e':{
+    'x':{
         'a'   :{},
         'add' :{},
         'list':{},
@@ -178,6 +178,62 @@ exports.commands = {
             'del' :{}
         },
         'group':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        }
+    },
+    'xtension':{
+        'a'   :{},
+        'add' :{},
+        'list':{},
+        'l'   :{},
+        'd'   :{},
+        'del' :{},
+        'f':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'file':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'g':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'group':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'm':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'modul':{
             'a'   :{},
             'add' :{},
             'list':{},
@@ -297,7 +353,7 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
-        'e':{
+        'x':{
             'a'   :{},
             'add' :{},
             'list':{},
@@ -305,6 +361,14 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
+        'xtension':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        }
         'extension':{
             'a'   :{},
             'add' :{},
@@ -353,7 +417,15 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
-        'e':{
+        'x':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'xtension':{
             'a'   :{},
             'add' :{},
             'list':{},
@@ -409,7 +481,15 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
-        'e':{
+        'x':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'xtension':{
             'a'   :{},
             'add' :{},
             'list':{},
@@ -481,7 +561,15 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
-        'e':{
+        'x':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'xtension':{
             'a'   :{},
             'add' :{},
             'list':{},
@@ -553,7 +641,15 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
-        'e':{
+        'x':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'xtension':{
             'a'   :{},
             'add' :{},
             'list':{},
@@ -641,7 +737,15 @@ exports.commands = {
             'd'   :{},
             'del' :{}
         },
-        'e':{
+        'x':{
+            'a'   :{},
+            'add' :{},
+            'list':{},
+            'l'   :{},
+            'd'   :{},
+            'del' :{}
+        },
+        'xtension':{
             'a'   :{},
             'add' :{},
             'list':{},
