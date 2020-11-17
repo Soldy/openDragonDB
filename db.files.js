@@ -8,8 +8,8 @@ exports.base=function(parentIn){
      * @public
      * @return {string} || {bool}
     */
-    this.search = function(name){
-        return search(name);
+    this.search = function(type, name){
+        return search(type, name);
     }
 
     /*
@@ -47,13 +47,13 @@ exports.base=function(parentIn){
      * @return {string}
      */
     const commandAdd = function(data){
-        if(4 > data.length)
+        if(5 > data.length)
              return help();
-        let id = search(data[4]);
+        let id = search(data[3], data[4]);
         if ( id !== false)
             return (cn+" already exist \n");
-        add(data[4]);
-        return (cn+' '+data[4]+" added \n");
+        add(data[3], data[4]);
+        return (cn+' '+data[3]+' '+data[4]+" added \n");
     }
     /*
      * @param {array}
@@ -61,9 +61,9 @@ exports.base=function(parentIn){
      * @return {string}
      */
     const commandGet = function(data){
-        if(4 > data.length)
+        if(5 > data.length)
              return help();
-        let id = search(data[4]);
+        let id = search(data[4], data[5]);
         if ( id === false)
             return (cn+" not found \n");
         let details = get(id);
@@ -79,12 +79,12 @@ exports.base=function(parentIn){
      * @return {string}
      */
     const commandDel = function(data){
-        if(4 > data.length)
+        if(5 > data.length)
              return help();
-        if ( get(data[4]) === false)
+        if ( get(data[3], data[4]) === false)
             return (cn+" not found \n");
-        del(data[4]);
-        return (cn+' '+data[4]+" deleted \n");
+        del(data[3],data[4]);
+        return (cn+' '+data[3]+' '+data[4]+" deleted \n");
     }
     /*
      * @private
@@ -103,11 +103,14 @@ exports.base=function(parentIn){
      * @private
      * @return {string} || {bool}
      */
-    let search = function(name){
+    let search = function(type, name){
         let list = DB.all();
         for(let i in list)
-            if(list[i].name === name)
-            return i;
+            if(
+                (list[i].type === type)||
+                (list[i].name === name)
+            )
+                return i;
         return false;
 
     }
