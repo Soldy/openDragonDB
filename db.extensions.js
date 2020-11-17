@@ -49,11 +49,11 @@ exports.extensionBase=function(parentIn){
     const commandAdd = function(data){
         if(4 > data.length)
              return help();
-        let id = search(data[4]);
+        let id = search(data[3]);
         if ( id !== false)
             return (cn+" already exist \n");
-        add(data[4]);
-        return (cn+' '+data[4]+" added \n");
+        add(data[3]);
+        return (cn+' '+data[3]+" added \n");
     }
     /*
      * @param {array}
@@ -63,7 +63,7 @@ exports.extensionBase=function(parentIn){
     const commandGet = function(data){
         if(4 > data.length)
              return help();
-        let id = search(data[4]);
+        let id = search(data[3]);
         if ( id === false)
             return (cn+" not found \n");
         let details = get(id);
@@ -81,10 +81,10 @@ exports.extensionBase=function(parentIn){
     const commandDel = function(data){
         if(4 > data.length)
              return help();
-        if ( get(data[4]) === false)
+        if ( get(data[3]) === false)
             return (cn+" not found \n");
-        del(data[4]);
-        return (cn+' '+data[4]+" deleted \n");
+        del(data[3]);
+        return (cn+' '+data[3]+" deleted \n");
     }
     /*
      * @private
@@ -96,7 +96,6 @@ exports.extensionBase=function(parentIn){
             null,
             4
         );
-
     }
     /*
      * @param {string}
