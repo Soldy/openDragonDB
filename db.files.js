@@ -1,8 +1,8 @@
 'use strict'
+
 const temprc = (require('temprc')).temprc;
 
-
-exports.extensionBase=function(parentIn){
+exports.base=function(parentIn){
     /*
      * @param {string}
      * @public
@@ -135,19 +135,64 @@ exports.extensionBase=function(parentIn){
      * @return {string} || {bool}
      */
 
-    let list = function(){
+    let list = function(type){
+        if(typeof type === 'undefined')
+            type = 'all';
         let out = [];
         let list = DB.all();
         for(let i in list)
-            out.push(list[i].name);
+            out.push(list[i].name+' '+list[i].type);
         return out;
     }
+    /*
+     * @param {string}
+     * @param {string}
+     * @private
+     * @return {string} || {bool}
+     */
+    let add =function (type, name){
+        let id = ((Math.floor(Math.random()*36).toString(36)+
+            DB.size+
+            (Math.floor(Math.random()*36).toString(36));
+        let packet = ({
+            "serial"   : DB.size, 
+            "id"       : id,
+            "name"     : name, // name
+            "type"     : type, // type
+            "hash"     : "" // hash
+         });
+         DB.add(
+             id,
+             packet
+         );
+         return true;
+    }
+    /*
+     * @param {string}
+     * @private
+     * @return {boolean}
+     */
+    let typeCheck = function (type){
+        if(types.indexOf(type) > -1 )
+            return true;
+        return false;
+    }
+    /*
+     * @private
+     * @var {array}
+     */
+    let types = [
+        'html',
+        'css',
+        'svg',
+        'js'
+    ]
     /*
      * @private
      * @var {object}
      */
-    const DB = new temprc(
-        'od_db/extensions.json'
+    let DB = new temprc(
+        'od_db/files.json'
     );
     /*
      * @private
@@ -165,5 +210,5 @@ exports.extensionBase=function(parentIn){
      * @private
      * @var {string}
      */
-    const cn = 'extension';
+    const cn = 'file';
 }

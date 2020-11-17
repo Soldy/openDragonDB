@@ -1,8 +1,7 @@
 'use strict'
 const temprc = (require('temprc')).temprc;
 
-
-exports.extensionBase=function(parentIn){
+exports.base=function(parentIn){
     /*
      * @param {string}
      * @public
@@ -143,11 +142,38 @@ exports.extensionBase=function(parentIn){
         return out;
     }
     /*
+     * @param {string}
+     * @private
+     * @return {string} || {bool}
+     */
+    let add =function(name){
+        let id = ((Math.floor(Math.random()*36).toString(36)+
+            DB.size+
+            (Math.floor(Math.random()*36).toString(36));
+        if (search(name) !== false)
+            return false;
+        let packet = ({
+            "serial"      : DB.size, 
+            "id"          : id,
+            "name"        : name, // name
+            "files"       : [],
+            "groups"      : [],
+            "modules"     : [],
+            "views"       : [],
+            "extensions"  : []
+         });
+         DB.add(
+             id,
+             packet
+         );
+         return true;
+    }
+    /*
      * @private
      * @var {object}
      */
-    const DB = new temprc(
-        'od_db/extensions.json'
+    let DB = new temprc(
+            'od_db/apps.json'
     );
     /*
      * @private
@@ -159,11 +185,11 @@ exports.extensionBase=function(parentIn){
     /*
      * @private
      * @var {object}
-    */
+     */
     const openDragonDb = parentIn;
     /*
      * @private
      * @var {string}
      */
-    const cn = 'extension';
+    const cn = 'app';
 }
