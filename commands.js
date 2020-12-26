@@ -48,7 +48,7 @@ exports.commands = {
         'list':{},
         'l'   :{},
         'd'   :{},
-        'del' :{}
+        'del' :{},
         'f':{
             'a'   :{},
             'add' :{},
@@ -368,7 +368,7 @@ exports.commands = {
             'l'   :{},
             'd'   :{},
             'del' :{}
-        }
+        },
         'extension':{
             'a'   :{},
             'add' :{},
@@ -603,8 +603,6 @@ exports.commands = {
         }
     },
     'p':{
-        'a'   :{},
-        'add' :{},
         'list':{},
         'l'   :{},
         'd'   :{},
@@ -699,8 +697,6 @@ exports.commands = {
         }
     },
     'project':{
-        'a'   :{},
-        'add' :{},
         'list':{},
         'l'   :{},
         'd'   :{},
@@ -796,5 +792,5 @@ exports.commands = {
     },
     's':{},
     'setup':{}
-}
+};
 
