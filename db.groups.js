@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const temprc = (require('temprc')).temprc;
 
 exports.groupBase=function(parentIn){
@@ -9,7 +9,7 @@ exports.groupBase=function(parentIn){
     */
     this.search = function(name){
         return search(name);
-    }
+    };
 
     /*
      * @public
@@ -17,29 +17,24 @@ exports.groupBase=function(parentIn){
      */
     this.command = function(data){
         if(3 > data.length)
-             return help();
+            return help();
         switch (data[2]) {
-            case 'a':
-            case 'add':
-                return commandAdd(data);
-                break;
-            case 'l':
-            case 'list':
-                return commandList();
-                break;
-            case 'd':
-            case 'det':
-                return commandDel(data);
-                break;
-            case 'g':
-            case 'get':
-                return commandGet(data);
-                break;
-            default:
-                return help();
-                break;
+        case 'a':
+        case 'add':
+            return commandAdd(data);
+        case 'l':
+        case 'list':
+            return commandList();
+        case 'd':
+        case 'det':
+            return commandDel(data);
+        case 'g':
+        case 'get':
+            return commandGet(data);
+        default:
+            return help();
         }
-    }
+    };
     /*
      * @param {array}
      * @private
@@ -47,13 +42,13 @@ exports.groupBase=function(parentIn){
      */
     const commandAdd = function(data){
         if(4 > data.length)
-             return help();
+            return help();
         let id = search(data[3]);
         if ( id !== false)
-            return (cn+" already exist \n");
+            return (cn+' already exist \n');
         add(data[3]);
-        return (cn+' '+data[3]+" added \n");
-    }
+        return (cn+' '+data[3]+' added \n');
+    };
     /*
      * @param {array}
      * @private
@@ -61,17 +56,17 @@ exports.groupBase=function(parentIn){
      */
     const commandGet = function(data){
         if(4 > data.length)
-             return help();
+            return help();
         let id = search(data[3]);
         if ( id === false)
-            return (cn+" not found \n");
+            return (cn+' not found \n');
         let details = get(id);
         return JSON.stringify(
             details,
             null,
             4
         );
-    }
+    };
     /*
      * @param {array}
      * @private
@@ -79,12 +74,12 @@ exports.groupBase=function(parentIn){
      */
     const commandDel = function(data){
         if(4 > data.length)
-             return help();
+            return help();
         if ( get(data[3]) === false)
-            return (cn+" not found \n");
+            return (cn+' not found \n');
         del(data[3]);
-        return (cn+' '+data[3]+" deleted \n");
-    }
+        return (cn+' '+data[3]+' deleted \n');
+    };
     /*
      * @private
      * @return {string}
@@ -95,7 +90,7 @@ exports.groupBase=function(parentIn){
             null,
             4
         );
-    }
+    };
     /*
      * @param {string}
      * @private
@@ -105,9 +100,9 @@ exports.groupBase=function(parentIn){
         let list = DB.all();
         for(let i in list)
             if(list[i].name === name)
-            return i;
+                return i;
         return false;
-    }
+    };
     /*
      * @param {string}
      * @private
@@ -115,17 +110,17 @@ exports.groupBase=function(parentIn){
      */
     let get = function(id){
         return DB.get(id);
-    }
+    };
     /*
      * @param {string}
      * @private
      * @return {string} || {bool}
      */
     let del = function(id){
-       if(DB.del(id))
-           return true;
-       return false;
-    }
+        if(DB.del(id))
+            return true;
+        return false;
+    };
     /*
      * @param {string}
      * @private
@@ -138,30 +133,30 @@ exports.groupBase=function(parentIn){
         for(let i in list)
             out.push(list[i].name);
         return out;
-    }
+    };
     /*
      * @param {string}
      * @private
      * @return {string} || {bool}
      */
     let add =function(name){
-        let id = ((Math.floor(Math.random()*36).toString(36)+
+        let id = (Math.floor(Math.random()*36).toString(36)+
             DB.size+
-            (Math.floor(Math.random()*36).toString(36));
+            (Math.floor(Math.random()*36).toString(36)));
         if (search(name) !== false)
             return false;
         let packet = ({
-            "serial"      : DB.size, 
-            "id"          : id,
-            "name"        : name, // name
-            "files"       : []
-         });
-         DB.add(
-             id,
-             packet
-         );
-         return true;
-    }
+            'serial'      : DB.size, 
+            'id'          : id,
+            'name'        : name, // name
+            'files'       : []
+        });
+        DB.add(
+            id,
+            packet
+        );
+        return true;
+    };
     /*
      * @private
      * @var {object}
@@ -175,7 +170,7 @@ exports.groupBase=function(parentIn){
      */
     const help = function(){
         return ('db '+cn+' help \n');
-    }
+    };
     /*
      * @private
      * @var {object}
@@ -186,4 +181,4 @@ exports.groupBase=function(parentIn){
      * @var {string}
      */
     const cn = 'group';
-}
+};
