@@ -10,108 +10,105 @@ const eBase = (require('./db.extensions.js')).base;
 const pBase = (require('./db.projects.js')).base;
 const commands = (require('./commands.js')).commands;
 
-const openDragonDbBase = {
+const openDragonDbBase = function(parentIn){
+    /*
+     * @public
+     * @return {object}
+     */
+    this.openDragon = function(){
+        return openDragon;
+    };
     /*
      * @public
      * @return {string} || {bool}
      */
     this.commands = function(){
         return commands;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.command = function(data){
         if(2 > data.length)
-             return help();
+            return help();
         switch (data[1]) {
-            case 'f':
-            case 'file':
-                return fDB.command(data);
-                break;
-            case 'g':
-            case 'group':
-                return gDB.command(data);
-                break;
-            case 'm':
-            case 'modul':
-            case 'module':
-                return mDB.command(data);
-                break;
-            case 'v':
-            case 'view':
-                return vDB.command(data);
-                break;
-            case 'a':
-            case 'app':
-                return aDB.command(data);
-                break;
-            case 'x':
-            case 'xtension':
-            case 'extension':
-                return eDB.command(data);
-                break;
-            case 'p':
-            case 'project':
-                return pDB.command(data);
-                break;
-            default:
-                return (
-                    help(); 
-                );
-                break;
+        case 'f':
+        case 'file':
+            return fDB.command(data);
+        case 'g':
+        case 'group':
+            return gDB.command(data);
+        case 'm':
+        case 'modul':
+        case 'module':
+            return mDB.command(data);
+        case 'v':
+        case 'view':
+            return vDB.command(data);
+        case 'a':
+        case 'app':
+            return aDB.command(data);
+        case 'x':
+        case 'xtension':
+        case 'extension':
+            return eDB.command(data);
+        case 'p':
+        case 'project':
+            return pDB.command(data);
+        default:
+            return help();
         }
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.file=function(){
         return fDB;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.group=function(){
         return gDB;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.module=function(){
         return mDB;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.project=function(){
         return pDB;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.app=function(){
         return aDB;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.view=function(){
         return vDB;
-    }
+    };
     /*
      * @public
      * @return {object}
      */
     this.extension=function(){
         return eDB;
-    }
+    };
     /*
      * @private
      * @var {object}
@@ -153,5 +150,6 @@ const openDragonDbBase = {
      */
     let help = function(){
         return 'db help \n';
-    }
-}
+    };
+    let openDragon = parentIn;
+};
